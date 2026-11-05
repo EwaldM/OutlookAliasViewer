@@ -19,7 +19,8 @@ Sub ShowAlias()
         i = InStr(1, strHeaders, vbCrLf & "To:", vbTextCompare)
         If i > 0 Then
             i = i + 4
-            iEnd = InStr(i, strHeaders, vbCrLf & "Subject:"))
+            iEnd = InStr(i, strHeaders, vbCrLf & "CC:")
+            If iEnd = 0 Then iEnd = InStr(i, strHeaders, vbCrLf & "Subject:")
             If iEnd > 0 Then
                 strTo = Trim$(Mid$(strHeaders, i, iEnd - i))
             Else
